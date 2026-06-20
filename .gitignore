@@ -17,3 +17,7 @@ LAPORAN*.docx
 LAPORAN*.md
 ~$*.docx
 generate_laporan.py
+
+# Python
+__pycache__/
+*.pyc
