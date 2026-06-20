@@ -14,7 +14,7 @@
 
 ## 📌 Tentang
 
-**LabNet TKJ** adalah website dokumentasi dan monitoring implementasi jaringan LAN di laboratorium komputer. Dibangun sebagai proyek akhir untuk Program Studi Pendidikan Teknologi Informasi, Universitas Lampung.
+**LabNet TKJ** adalah website dokumentasi dan monitoring implementasi jaringan LAN di laboratorium komputer. Dibangun sebagai proyek akhir untuk Mata Kuliah Proyek Teknologi Informasi.
 
 Website ini menyajikan informasi topologi jaringan, daftar perangkat, konfigurasi IP, monitoring status perangkat secara real-time, dan kontak pengelola — semuanya dalam satu dashboard statis yang ringan dan responsif.
 
