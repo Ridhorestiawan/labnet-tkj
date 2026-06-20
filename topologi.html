@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Topologi Jaringan LabNet TKJ — Star, Bus, Ring">
+  <title>LabNet TKJ — Topologi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Lab<span>Net</span></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+      <li><a href="topologi.html" class="active">Topologi</a></li>
+      <li><a href="perangkat.html">Perangkat</a></li>
+      <li><a href="konfigurasi.html">Konfigurasi</a></li>
+      <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title fade-in">Topologi Jaringan</h1>
+
+  <div class="card fade-in">
+    <p>Topologi jaringan adalah susunan fisik atau logis dari perangkat dalam suatu jaringan. Berikut adalah tiga jenis topologi yang umum digunakan dalam jaringan LAN laboratorium.</p>
+  </div>
+
+  <!-- Tab Bar -->
+  <div class="tab-bar fade-in">
+    <button class="tab-btn active" data-tab="star">&#9733; Star</button>
+    <button class="tab-btn" data-tab="bus">&#8212; Bus</button>
+    <button class="tab-btn" data-tab="ring">&#8631; Ring</button>
+  </div>
+
+  <!-- ════ TAB: STAR ════ -->
+  <div class="tab-content active" id="tab-star">
+    <div class="tab-pane">
+      <h2 style="color:var(--primary);margin-bottom:8px;">Topologi Star</h2>
+      <p style="color:var(--text-light);line-height:1.7;">Topologi Star menggunakan satu perangkat pusat (<strong>switch/hub</strong>) yang menghubungkan semua perangkat lain. Setiap perangkat memiliki kabel sendiri ke pusat.</p>
+
+      <div class="topologi-wrapper">
+        <svg class="topologi-svg" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+          <g class="node-group" data-device="internet">
+            <rect class="node-rect" x="250" y="10" width="100" height="36" style="fill:#546e7a"/>
+            <text class="node-text" x="300" y="28">INTERNET</text>
+          </g>
+          <line class="link-line" x1="300" y1="46" x2="300" y2="74"/>
+          <g class="node-group" data-device="router">
+            <rect class="node-rect" x="230" y="74" width="140" height="40" style="fill:#0b3d91"/>
+            <text class="node-text" x="300" y="94">Router</text>
+          </g>
+          <line class="link-line" x1="300" y1="114" x2="300" y2="154"/>
+          <g class="node-group" data-device="switch">
+            <rect class="node-rect switch" x="220" y="154" width="160" height="40" style="fill:#1565c0"/>
+            <text class="node-text" x="300" y="174">Switch Utama</text>
+          </g>
+          <line class="link-line" x1="260" y1="194" x2="100" y2="260"/>
+          <g class="node-group" data-device="pc1">
+            <rect class="node-rect pc" x="50" y="250" width="100" height="36" style="fill:#e65100"/>
+            <text class="node-text" x="100" y="268">PC-01</text>
+          </g>
+          <line class="link-line" x1="300" y1="194" x2="300" y2="250"/>
+          <g class="node-group" data-device="pc2">
+            <rect class="node-rect pc" x="250" y="250" width="100" height="36" style="fill:#e65100"/>
+            <text class="node-text" x="300" y="268">PC-02</text>
+          </g>
+          <line class="link-line" x1="340" y1="194" x2="500" y2="260"/>
+          <g class="node-group" data-device="pc3">
+            <rect class="node-rect pc" x="450" y="250" width="100" height="36" style="fill:#e65100"/>
+            <text class="node-text" x="500" y="268">PC-03</text>
+          </g>
+          <line class="link-line" x1="300" y1="194" x2="300" y2="370"/>
+          <g class="node-group" data-device="server">
+            <rect class="node-rect server" x="230" y="370" width="140" height="40" style="fill:#2e7d32"/>
+            <text class="node-text" x="300" y="390">Server</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="topo-props">
+        <div class="prop">
+          <h4>&#10003; Keunggulan</h4>
+          <p>Mudah dikelola. Kerusakan satu kabel tidak mengganggu perangkat lain. Performa stabil. Mudah ditambah perangkat baru.</p>
+        </div>
+        <div class="prop">
+          <h4>&#10007; Kekurangan</h4>
+          <p>Bergantung penuh pada switch pusat. Kabel lebih panjang. Biaya lebih tinggi karena perlu switch.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);font-style:italic;">Klik node pada diagram untuk melihat detail perangkat.</p>
+    </div>
+  </div>
+
+  <!-- ════ TAB: BUS ════ -->
+  <div class="tab-content" id="tab-bus">
+    <div class="tab-pane">
+      <h2 style="color:var(--primary);margin-bottom:8px;">Topologi Bus</h2>
+      <p style="color:var(--text-light);line-height:1.7;">Topologi Bus menggunakan satu kabel utama (<strong>backbone</strong>) sebagai jalur komunikasi bersama. Setiap perangkat terhubung ke kabel ini melalui konektor T. Di kedua ujung kabel dipasang <strong>terminator</strong> untuk mencegah pantulan sinyal.</p>
+
+      <div class="topologi-wrapper interactive">
+        <svg class="topologi-svg" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Terminator Kiri -->
+          <rect x="20" y="43" width="16" height="34" rx="3" style="fill:#546e7a"/>
+          <text class="node-text" x="28" y="60" style="font-size:9px;">T</text>
+
+          <!-- Backbone line -->
+          <line x1="36" y1="60" x2="604" y2="60" stroke="#37474f" stroke-width="4"/>
+
+          <!-- Terminator Kanan -->
+          <rect x="604" y="43" width="16" height="34" rx="3" style="fill:#546e7a"/>
+          <text class="node-text" x="612" y="60" style="font-size:9px;">T</text>
+
+          <!-- PC1 -->
+          <line x1="100" y1="60" x2="100" y2="120" class="link-line"/>
+          <rect class="node-rect bus-pc" x="50" y="120" width="100" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="100" y="138">PC-01</text>
+
+          <!-- PC2 -->
+          <line x1="190" y1="60" x2="190" y2="120" class="link-line"/>
+          <rect class="node-rect bus-pc" x="140" y="120" width="100" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="190" y="138">PC-02</text>
+
+          <!-- PC3 -->
+          <line x1="280" y1="60" x2="280" y2="120" class="link-line"/>
+          <rect class="node-rect bus-pc" x="230" y="120" width="100" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="280" y="138">PC-03</text>
+
+          <!-- PC4 -->
+          <line x1="370" y1="60" x2="370" y2="120" class="link-line"/>
+          <rect class="node-rect bus-pc" x="320" y="120" width="100" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="370" y="138">PC-04</text>
+
+          <!-- PC5 -->
+          <line x1="460" y1="60" x2="460" y2="120" class="link-line"/>
+          <rect class="node-rect bus-pc" x="410" y="120" width="100" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="460" y="138">PC-05</text>
+
+          <!-- Server -->
+          <line x1="540" y1="60" x2="540" y2="190" class="link-line"/>
+          <rect class="node-rect bus-server" x="490" y="190" width="100" height="36" style="fill:#2e7d32"/>
+          <text class="node-text" x="540" y="208">Server</text>
+
+          <!-- Label Backbone -->
+          <text x="320" y="30" fill="#90a4ae" font-size="11" font-family="var(--font)" text-anchor="middle" font-style="italic">Kabel Backbone (Coaxial)</text>
+
+        </svg>
+      </div>
+
+      <div class="topo-props">
+        <div class="prop">
+          <h4>&#10003; Keunggulan</h4>
+          <p>Murah dan sederhana. Hemat kabel. Mudah diperluas dengan menambah perangkat di sepanjang backbone.</p>
+        </div>
+        <div class="prop">
+          <h4>&#10007; Kekurangan</h4>
+          <p>Jika backbone putus, seluruh jaringan mati. Sulit melacak gangguan. Kinerja menurun jika banyak perangkat.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);font-style:italic;">Cocok untuk jaringan kecil dengan lalu lintas data rendah.</p>
+    </div>
+  </div>
+
+  <!-- ════ TAB: RING ════ -->
+  <div class="tab-content" id="tab-ring">
+    <div class="tab-pane">
+      <h2 style="color:var(--primary);margin-bottom:8px;">Topologi Ring</h2>
+      <p style="color:var(--text-light);line-height:1.7;">Topologi Ring menghubungkan setiap perangkat dengan dua perangkat di sebelahnya, membentuk lingkaran tertutup. Data dikirim searah (atau dua arah) melalui sinyal <strong>token</strong> yang berputar dalam ring.</p>
+
+      <div class="topologi-wrapper interactive">
+        <svg class="topologi-svg" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Ring connection lines -->
+          <circle cx="250" cy="240" r="160" fill="none" stroke="#90a4ae" stroke-width="3" stroke-dasharray="8,4"/>
+          <circle cx="250" cy="240" r="155" fill="none" stroke="#90a4ae" stroke-width="1" opacity="0.3"/>
+          <circle cx="250" cy="240" r="165" fill="none" stroke="#90a4ae" stroke-width="1" opacity="0.3"/>
+
+          <!-- PC1 - top -->
+          <line x1="250" y1="80" x2="250" y2="115" class="link-line"/>
+          <rect class="node-rect ring-pc" x="195" y="115" width="110" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="250" y="133">PC-01</text>
+
+          <!-- PC2 - top right -->
+          <line x1="388" y1="154" x2="352" y2="175" class="link-line"/>
+          <rect class="node-rect ring-pc" x="290" y="170" width="110" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="345" y="188">PC-02</text>
+
+          <!-- PC3 - bottom right -->
+          <line x1="410" y1="304" x2="368" y2="290" class="link-line"/>
+          <rect class="node-rect ring-pc" x="300" y="270" width="110" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="355" y="288">PC-03</text>
+
+          <!-- PC4 - bottom -->
+          <line x1="250" y1="400" x2="250" y2="365" class="link-line"/>
+          <rect class="node-rect ring-pc" x="195" y="329" width="110" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="250" y="347">PC-04</text>
+
+          <!-- PC5 - bottom left -->
+          <line x1="112" y1="304" x2="132" y2="290" class="link-line"/>
+          <rect class="node-rect ring-pc" x="90" y="270" width="110" height="36" style="fill:#e65100"/>
+          <text class="node-text" x="145" y="288">PC-05</text>
+
+          <!-- Server - top left -->
+          <line x1="112" y1="154" x2="148" y2="175" class="link-line"/>
+          <rect class="node-rect ring-server" x="100" y="170" width="110" height="36" style="fill:#2e7d32"/>
+          <text class="node-text" x="155" y="188">Server</text>
+
+          <!-- Token label -->
+          <text x="320" y="230" fill="#ff6d00" font-size="12" font-family="var(--font)" text-anchor="middle" font-weight="bold">&#9654; Token</text>
+
+          <!-- Direction arrows -->
+          <text x="250" y="56" fill="#90a4ae" font-size="20" text-anchor="middle">&#8595;</text>
+          <text x="440" y="234" fill="#90a4ae" font-size="20" text-anchor="middle">&#8594;</text>
+          <text x="250" y="444" fill="#90a4ae" font-size="20" text-anchor="middle">&#8593;</text>
+          <text x="62" y="234" fill="#90a4ae" font-size="20" text-anchor="middle">&#8592;</text>
+
+        </svg>
+      </div>
+
+      <div class="topo-props">
+        <div class="prop">
+          <h4>&#10003; Keunggulan</h4>
+          <p>Performa stabil karena tidak ada tabrakan data. Setiap perangkat mendapat giliran mengirim data (token passing).</p>
+        </div>
+        <div class="prop">
+          <h4>&#10007; Kekurangan</h4>
+          <p>Jika satu perangkat mati, seluruh jaringan terganggu. Sulit menambah/mengurangi perangkat. Mahal.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:12px;font-size:0.9rem;color:var(--text-light);font-style:italic;">Biasa digunakan pada jaringan Fiber Distributed Data Interface (FDDI).</p>
+    </div>
+  </div>
+
+  <!-- Tabel Perbandingan -->
+  <div class="card fade-in">
+    <h2>Perbandingan Topologi</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspek</th>
+            <th>Star</th>
+            <th>Bus</th>
+            <th>Ring</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pusat koneksi</td><td>Switch / Hub</td><td>Kabel backbone</td><td>Tidak ada (melingkar)</td></tr>
+          <tr><td>Biaya</td><td>Sedang</td><td>Rendah</td><td>Tinggi</td></tr>
+          <tr><td>Gangguan</td><td>Kabel putus hanya node terkait</td><td>Backbone putus = semua mati</td><td>Satu node mati = semua terganggu</td></tr>
+          <tr><td>Pengembangan</td><td>Mudah</td><td>Mudah</td><td>Sulit</td></tr>
+          <tr><td>Performa</td><td>Stabil</td><td>Menurun jika padat</td><td>Stabil (token passing)</td></tr>
+          <tr><td>Cocok untuk</td><td>Lab, kantor, sekolah</td><td>Jaringan kecil sementara</td><td>Jaringan backbone besar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <h2>Topologi yang Digunakan</h2>
+    <p>Laboratorium ini menggunakan <strong>topologi Star</strong> karena kemudahan pengelolaan, stabilitas, dan kemudahan pengembangan. Setiap PC terhubung ke switch utama, yang kemudian terhubung ke router untuk akses internet.</p>
+  </div>
+
+</main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h3 id="modalTitle">Perangkat</h3>
+    <div class="modal-info" id="modalInfo"></div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 LabNet TKJ &mdash; <span>Teknik Komputer dan Jaringan</span>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script src="js/main.js"></script>
+<script>
+(function() {
+  // Tab switching
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+      document.getElementById('tab-' + this.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+
+  // Modal (Star topology only)
+  var devices = {
+    internet: { icon: '\uD83C\uDF10', name: 'Internet', ip: '\u2014', fungsi: 'Koneksi global ke luar jaringan', status: 'Online' },
+    router:   { icon: '\uD83D\uDCE1', name: 'Router', ip: '192.168.1.1', fungsi: 'Gateway & NAT ke internet', status: 'Online' },
+    switch:   { icon: '\uD83D\uDD0C', name: 'Switch Utama', ip: '192.168.1.2', fungsi: 'Pusat koneksi topologi Star', status: 'Online' },
+    pc1:      { icon: '\uD83D\uDCBB', name: 'PC-01', ip: '192.168.1.11', fungsi: 'Workstation siswa 1', status: 'Online' },
+    pc2:      { icon: '\uD83D\uDCBB', name: 'PC-02', ip: '192.168.1.12', fungsi: 'Workstation siswa 2', status: 'Online' },
+    pc3:      { icon: '\uD83D\uDCBB', name: 'PC-03', ip: '192.168.1.13', fungsi: 'Workstation siswa 3', status: 'Online' },
+    server:   { icon: '\uD83D\uDDA5\uFE0F', name: 'Server', ip: '192.168.1.10', fungsi: 'Server lokal lab', status: 'Online' }
+  };
+
+  var overlay = document.getElementById('modalOverlay');
+  var closeBtn = document.getElementById('modalClose');
+  var iconEl = document.getElementById('modalIcon');
+  var titleEl = document.getElementById('modalTitle');
+  var infoEl = document.getElementById('modalInfo');
+
+  document.querySelectorAll('#tab-star .node-group').forEach(function(group) {
+    group.addEventListener('click', function() {
+      var key = this.getAttribute('data-device');
+      var d = devices[key];
+      if (!d) return;
+
+      iconEl.textContent = d.icon;
+      titleEl.textContent = d.name;
+      infoEl.innerHTML =
+        '<div class="row"><span class="label">IP Address</span><span class="value">' + d.ip + '</span></div>' +
+        '<div class="row"><span class="label">Fungsi</span><span class="value">' + d.fungsi + '</span></div>' +
+        '<div class="row"><span class="label">Status</span><span class="value" style="color:' + (d.status === 'Online' ? 'var(--accent)' : 'var(--accent-danger)') + '">' + d.status + '</span></div>';
+
+      overlay.classList.add('show');
+    });
+  });
+
+  function closeModal() { overlay.classList.remove('show'); }
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+</body>
+</html>

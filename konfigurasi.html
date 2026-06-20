@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Konfigurasi Jaringan LabNet TKJ — Cara Setting IP, Subnet, Gateway">
+  <title>LabNet TKJ — Konfigurasi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Lab<span>Net</span></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+      <li><a href="topologi.html">Topologi</a></li>
+      <li><a href="perangkat.html">Perangkat</a></li>
+      <li><a href="konfigurasi.html" class="active">Konfigurasi</a></li>
+      <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title fade-in">Konfigurasi Jaringan</h1>
+
+  <div class="card fade-in">
+    <h2>Apa itu Konfigurasi Jaringan?</h2>
+    <p>Konfigurasi jaringan adalah proses pengaturan parameter jaringan pada perangkat agar dapat terhubung dan berkomunikasi dalam suatu jaringan. Konfigurasi meliputi pengaturan alamat IP, subnet mask, gateway default, dan DNS server.</p>
+  </div>
+
+  <!-- 1. IP Address -->
+  <div class="card config-section fade-in">
+    <h3>1. IP Address</h3>
+    <p><strong>IP Address</strong> (Internet Protocol Address) adalah alamat unik yang diberikan pada setiap perangkat dalam jaringan. IP address terdiri dari 4 blok angka (0-255) yang dipisahkan oleh titik, misalnya <strong>192.168.1.11</strong>.</p>
+    <p>Dalam jaringan LAN laboratorium, IP address dibagi menjadi dua kategori:</p>
+    <ul style="margin-left:20px">
+      <li><strong>IP Static</strong> — Alamat tetap yang dikonfigurasi manual pada setiap perangkat. Biasanya digunakan untuk server, printer jaringan, dan perangkat yang membutuhkan alamat tetap.</li>
+      <li><strong>IP DHCP</strong> — Alamat diberikan secara otomatis oleh router/switch DHCP server. Cocok untuk perangkat klien yang tidak memerlukan alamat tetap.</li>
+    </ul>
+  </div>
+
+  <!-- 2. Subnet Mask -->
+  <div class="card config-section fade-in">
+    <h3>2. Subnet Mask</h3>
+    <p><strong>Subnet Mask</strong> berfungsi untuk membedakan bagian network ID dan host ID dalam sebuah IP address. Dalam jaringan lab, subnet mask yang digunakan adalah <strong>255.255.255.0</strong> (prefix /24).</p>
+    <p>Contoh: IP <strong>192.168.1.11</strong> dengan subnet <strong>255.255.255.0</strong> berarti:</p>
+    <ul style="margin-left:20px">
+      <li>Network ID: <strong>192.168.1.0</strong></li>
+      <li>Host ID range: <strong>192.168.1.1</strong> hingga <strong>192.168.1.254</strong></li>
+      <li>Broadcast: <strong>192.168.1.255</strong></li>
+    </ul>
+  </div>
+
+  <!-- 3. Gateway -->
+  <div class="card config-section fade-in">
+    <h3>3. Gateway</h3>
+    <p><strong>Gateway</strong> adalah perangkat yang menghubungkan satu jaringan dengan jaringan lain. Dalam laboratorium, gateway biasanya adalah <strong>192.168.1.1</strong> (alamat router). Semua perangkat yang ingin mengakses internet harus melalui gateway ini.</p>
+  </div>
+
+  <!-- 4. Tabel Konfigurasi IP -->
+  <div class="card config-section fade-in">
+    <h3>4. Tabel Konfigurasi IP Perangkat</h3>
+    <p>Berikut adalah konfigurasi IP address untuk setiap perangkat dalam jaringan laboratorium:</p>
+  </div>
+
+  <div class="table-wrapper fade-in">
+    <table>
+      <thead>
+        <tr>
+          <th>Perangkat</th>
+          <th>IP Address</th>
+          <th>Subnet Mask</th>
+          <th>Gateway</th>
+          <th>Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Router</td><td>192.168.1.1</td><td>255.255.255.0</td><td>—</td><td>Gateway utama</td></tr>
+        <tr><td>Switch</td><td>192.168.1.2</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Manageable switch</td></tr>
+        <tr><td>Server</td><td>192.168.1.10</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Server lab</td></tr>
+        <tr><td>PC-01</td><td>192.168.1.11</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 1</td></tr>
+        <tr><td>PC-02</td><td>192.168.1.12</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 2</td></tr>
+        <tr><td>PC-03</td><td>192.168.1.13</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 3</td></tr>
+        <tr><td>PC-04</td><td>192.168.1.14</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 4</td></tr>
+        <tr><td>PC-05</td><td>192.168.1.15</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 5</td></tr>
+        <tr><td>PC-06</td><td>192.168.1.16</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 6</td></tr>
+        <tr><td>PC-07</td><td>192.168.1.17</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 7</td></tr>
+        <tr><td>PC-08</td><td>192.168.1.18</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 8</td></tr>
+        <tr><td>PC-09</td><td>192.168.1.19</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 9</td></tr>
+        <tr><td>PC-10</td><td>192.168.1.20</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Workstation 10</td></tr>
+        <tr><td>Access Point</td><td>192.168.1.100</td><td>255.255.255.0</td><td>192.168.1.1</td><td>Hotspot</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. Cara Setting IP Static di Windows -->
+  <div class="card config-section fade-in">
+    <h3>5. Cara Setting IP Static (Windows)</h3>
+    <p>Berikut langkah-langkah konfigurasi IP address static pada sistem operasi Windows:</p>
+    <ol class="step-list">
+      <li>Buka <strong>Control Panel</strong> &rarr; <strong>Network and Sharing Center</strong>.</li>
+      <li>Klik <strong>Change adapter settings</strong> di menu sebelah kiri.</li>
+      <li>Klik kanan pada jaringan yang digunakan (Ethernet / Local Area Connection), pilih <strong>Properties</strong>.</li>
+      <li>Pilih <strong>Internet Protocol Version 4 (TCP/IPv4)</strong>, lalu klik <strong>Properties</strong>.</li>
+      <li>Pilih <strong>Use the following IP address</strong>.</li>
+      <li>Isi IP address, subnet mask, dan default gateway sesuai tabel di atas.</li>
+      <li>Isi DNS server (misal: 8.8.8.8 untuk Google DNS).</li>
+      <li>Klik <strong>OK</strong> untuk menyimpan konfigurasi.</li>
+    </ol>
+  </div>
+
+  <!-- 6. Perintah Dasar Troubleshooting -->
+  <div class="card config-section fade-in">
+    <h3>6. Perintah Dasar Troubleshooting Jaringan</h3>
+    <p>Berikut perintah dasar yang dapat digunakan untuk mengecek koneksi jaringan:</p>
+
+    <p><strong>ipconfig</strong> — Menampilkan konfigurasi IP komputer saat ini.</p>
+    <div class="code-block">C:\Users\Lab&gt; ipconfig<br><br>Ethernet adapter Local Area Connection:<br>&nbsp;&nbsp; IP Address. . . . . . . . . : 192.168.1.11<br>&nbsp;&nbsp; Subnet Mask . . . . . . . . : 255.255.255.0<br>&nbsp;&nbsp; Default Gateway . . . . . . : 192.168.1.1</div>
+
+    <p><strong>ping</strong> — Mengecek koneksi ke perangkat lain.</p>
+    <div class="code-block">C:\Users\Lab&gt; ping 192.168.1.1<br><br>Reply from 192.168.1.1: bytes=32 time&lt;1ms TTL=128<br>Reply from 192.168.1.1: bytes=32 time&lt;1ms TTL=128<br>Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)</div>
+
+    <p><strong>tracert</strong> — Melacak rute paket data ke tujuan.</p>
+    <div class="code-block">C:\Users\Lab&gt; tracert google.com<br><br>1  &lt;1ms   &lt;1ms   &lt;1ms  192.168.1.1<br>2  10ms    8ms    9ms  10.0.0.1<br>3  25ms   22ms   24ms  203.xxx.xxx.xxx</div>
+
+    <p><strong>nslookup</strong> — Mengecek resolusi DNS.</p>
+    <div class="code-block">C:\Users\Lab&gt; nslookup google.com<br><br>Server:  dns.google<br>Address:  8.8.8.8<br><br>Non-authoritative answer:<br>Name:    google.com<br>Addresses:  142.250.xxx.xxx</div>
+  </div>
+
+  <!-- 7. Tabel Perbandingan IP -->
+  <div class="card config-section fade-in">
+    <h3>7. Perbandingan Static IP vs DHCP</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Aspek</th><th>Static IP</th><th>DHCP</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Konfigurasi</td><td>Manual</td><td>Otomatis</td></tr>
+          <tr><td>Stabilitas</td><td>Alamat tetap, tidak berubah</td><td>Dapat berubah setiap koneksi</td></tr>
+          <tr><td>Cocok untuk</td><td>Server, printer, perangkat tetap</td><td>Laptop, PC klien, perangkat mobile</td></tr>
+          <tr><td>Manajemen</td><td>Lebih rumit untuk banyak perangkat</td><td>Mudah dikelola dari router</td></tr>
+          <tr><td>Keamanan</td><td>Lebih mudah dilacak</td><td>Anonimitas lebih tinggi</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 LabNet TKJ &mdash; <span>Teknik Komputer dan Jaringan</span>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

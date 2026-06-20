@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LabNet TKJ — Dashboard Implementasi Jaringan LAN Laboratorium Komputer">
+  <meta name="author" content="TKJ">
+  <title>LabNet TKJ — Beranda</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Lab<span>Net</span></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Beranda</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+      <li><a href="topologi.html">Topologi</a></li>
+      <li><a href="perangkat.html">Perangkat</a></li>
+      <li><a href="konfigurasi.html">Konfigurasi</a></li>
+      <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>LabNet TKJ</h1>
+  <p>Dashboard Implementasi Jaringan LAN Laboratorium Komputer</p>
+</section>
+
+<main>
+  <div class="card-grid">
+    <div class="card fade-in">
+      <h2>Tujuan</h2>
+      <p>Memberikan informasi implementasi jaringan LAN pada laboratorium komputer sekolah secara transparan dan terstruktur.</p>
+    </div>
+    <div class="card fade-in">
+      <h2>Topologi</h2>
+      <p>Menggunakan topologi <strong>Star</strong> dengan satu switch utama yang menghubungkan seluruh perangkat.</p>
+    </div>
+    <div class="card fade-in">
+      <h2>Perangkat</h2>
+      <p>20 PC Client, 1 Router, 1 Switch, dan 1 Server terintegrasi dalam satu jaringan lokal.</p>
+    </div>
+    <div class="card fade-in">
+      <h2>Monitoring</h2>
+      <p>Pantau status perangkat jaringan secara <em>real-time</em> melalui halaman monitoring.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 LabNet TKJ &mdash; <span>Teknik Komputer dan Jaringan</span>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

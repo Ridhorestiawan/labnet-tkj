@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daftar Perangkat Jaringan LabNet TKJ">
+  <title>LabNet TKJ — Perangkat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Lab<span>Net</span></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+      <li><a href="topologi.html">Topologi</a></li>
+      <li><a href="perangkat.html" class="active">Perangkat</a></li>
+      <li><a href="konfigurasi.html">Konfigurasi</a></li>
+      <li><a href="monitoring.html">Monitoring</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+      <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title fade-in">Daftar Perangkat</h1>
+
+  <div class="table-wrapper fade-in">
+    <table>
+      <thead>
+        <tr>
+          <th>Perangkat</th>
+          <th>Jumlah</th>
+          <th>Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>PC Client</td><td>20</td><td>Workstation siswa</td></tr>
+        <tr><td>Router</td><td>1</td><td>Menghubungkan LAN ke internet</td></tr>
+        <tr><td>Switch</td><td>1</td><td>Pusat koneksi topologi Star</td></tr>
+        <tr><td>Server</td><td>1</td><td>Server lokal laboratorium</td></tr>
+        <tr><td>Access Point</td><td>1</td><td>Hotspot cadangan</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 LabNet TKJ &mdash; <span>Teknik Komputer dan Jaringan</span>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

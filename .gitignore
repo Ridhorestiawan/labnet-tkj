@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Laporan
+LAPORAN*.docx
+LAPORAN*.md
+~$*.docx
+generate_laporan.py
